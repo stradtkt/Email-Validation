@@ -1,0 +1,14 @@
+.flashes {
+  list-style-type: none;
+  padding: 20px 0;
+
+}
+.flashes p {
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}

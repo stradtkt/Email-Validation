@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block title %} {{super()}} | Show All {% endblock %}
+{% block content %} 
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <table class="table table-hover text-white">
+        <tr><th>Email</th></tr>
+        {% for email in emails %}
+        <tr><td>{{email['email']}}</td></tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              <div class="flashes">
+                {% for category, message in messages %}
+                  <p class="alert-{{ category }}">{{ message }}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endwith %}
+      <form action="/add_email" method="POST">
+        <div class="form-group">
+          <label for="email">Email: </label>
+          <input type="email" name="email" class="form-control">
+          <input type="submit" value="Submit" class="btn btn-info btn-block">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
